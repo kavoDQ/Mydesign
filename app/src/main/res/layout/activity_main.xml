@@ -175,8 +175,9 @@
                 android:ems="10"
                 android:hint="消費金額"
                 android:inputType="number"
+                android:singleLine="true"
                 android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textSize="8sp"
+                android:textSize="9sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -240,6 +241,8 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="8dp"
                 android:text="成員"
+                android:textSize="12sp"
+                android:singleLine="true"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
                 app:layout_constraintStart_toEndOf="@+id/textView15" />
 
