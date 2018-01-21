@@ -1,7 +1,9 @@
 package com.example.tacofighter.mydesign;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -34,4 +36,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
     }
+
+    public void clickgo (View v)
+    {
+        Intent it = new Intent(MainActivity.this,StartactActivity.class);
+        startActivity(it);
+    }
+
 }
+

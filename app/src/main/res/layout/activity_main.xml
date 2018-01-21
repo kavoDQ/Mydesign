@@ -130,9 +130,10 @@
     <FrameLayout
         android:layout_width="336dp"
         android:layout_height="165dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginTop="60dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="12dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -240,9 +241,9 @@
                 android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="8dp"
+                android:singleLine="true"
                 android:text="成員"
                 android:textSize="12sp"
-                android:singleLine="true"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
                 app:layout_constraintStart_toEndOf="@+id/textView15" />
 
