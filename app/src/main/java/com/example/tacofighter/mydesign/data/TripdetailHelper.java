@@ -8,17 +8,17 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by Student on 2018/1/23.
  */
 
-public class TripDataBaseHelper extends SQLiteOpenHelper {
+public class TripdetailHelper extends SQLiteOpenHelper { //活動細項
     final static  String DB_NAME = "Trip.sqlite";
     final static int VERSION = 1 ;
-    public  TripDataBaseHelper(Context context)
+    public TripdetailHelper(Context context)
     {
         super(context, DB_NAME, null, VERSION);
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE `trip` ( `_ID` INTEGER, `Title` TEXT NOT NULL, `Time` INTEGER NOT NULL, `budget` INTEGER, `member` TEXT, `money` INTEGER, `subject` TEXT, `Note` TEXT, PRIMARY KEY(`_ID`) )");
+    public void onCreate(SQLiteDatabase db2) {
+        db2.execSQL("CREATE TABLE `trip_detail` ( `_id` INTEGER NOT NULL, `Time` INTEGER, `_tripid` INTEGER, `subject` INTEGER, `Money` INTEGER, `Currency` TEXT, `Note` TEXT, PRIMARY KEY(`_id`) )");
     }
 
     @Override
