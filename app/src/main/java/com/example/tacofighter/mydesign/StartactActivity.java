@@ -24,8 +24,7 @@ public class StartactActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startact);
-        str = findViewById(R.id.startday);
-        end = findViewById(R.id.endday);
+
     }
 
     public void startime (View v)
@@ -86,15 +85,18 @@ public class StartactActivity extends AppCompatActivity {
 
         ed = findViewById(R.id.editText2);
         ed2 = findViewById(R.id.editText);
-        String title = ed.getText().toString();
-        int id = Integer.valueOf(ed2.getText().toString());
-
         str = findViewById(R.id.startday);
         end = findViewById(R.id.endday);
+        str = findViewById(R.id.startday);
+        end = findViewById(R.id.endday);
+        bud = findViewById(R.id.editText9);
+
+        String title = ed.getText().toString();
+        int id = Integer.valueOf(ed2.getText().toString());
         String startdate = str.getText().toString();//抓選好後的開始時間
         String enddate = end.getText().toString(); //抓選好後的結束時間
 
-        bud = findViewById(R.id.editText9);
+
         int budget = Integer.valueOf(bud.getText().toString());
 
 
