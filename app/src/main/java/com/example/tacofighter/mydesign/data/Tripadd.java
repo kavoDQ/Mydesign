@@ -30,6 +30,7 @@ public class Tripadd {
         cv.put("startdate",t.startdate);
         cv.put("enddate",t.enddate);
         cv.put("budget",t.budget);
+        db.insert("trip",null,cv);
         return true;
     }
 
@@ -39,11 +40,11 @@ public class Tripadd {
         if(c.moveToFirst())
         {
             //用於獲取指定欄位名稱的int 型別的值
-            trip t1 = new trip(c.getInt(1),c.getString(2),c.getInt(3),c.getInt(4),c.getInt(5));
+            trip t1 = new trip(c.getInt(1),c.getString(2),c.getString(3),c.getString(4),c.getInt(5));
             mytrip.add(t1);
             while (c.moveToFirst())
             {
-                trip t = new trip(c.getInt(1),c.getString(2),c.getInt(3),c.getInt(4),c.getInt(5));
+                trip t = new trip(c.getInt(1),c.getString(2),c.getString(3),c.getString(4),c.getInt(5));
                 mytrip.add(t);
             }
         }
@@ -55,7 +56,7 @@ public class Tripadd {
         Cursor c =db.query("trip", new String[]{"_id","title","startdate","enddate","budget"},"_id=?",new String[]{String.valueOf(id)},null,null,null);
         if(c.moveToFirst())
         {
-            trip t1 = new trip(c.getInt(1),c.getString(2),c.getInt(3),c.getInt(4),c.getInt(5));
+            trip t1 = new trip(c.getInt(1),c.getString(2),c.getString(3),c.getString(4),c.getInt(5));
             return  t1;
         }
         return  null;
@@ -72,6 +73,7 @@ public class Tripadd {
         db.update("trip",cv,"_id=?",new String[]{String.valueOf(t.id)});
         return  true;
     }
+
 
     public boolean delete(int id)  //照ID刪除資料
     {

@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Mydesign.iml" filepath="$PROJECT_DIR$/Mydesign.iml" />
       <module fileurl="file://C:\Users\TacoFighter\ApkProjects\Mydesign\.idea\Mydesign.iml" filepath="C:\Users\TacoFighter\ApkProjects\Mydesign\.idea\Mydesign.iml" />
-      <module fileurl="file://C:\tmp\Mydesign\Mydesign.iml" filepath="C:\tmp\Mydesign\Mydesign.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -7,13 +7,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.tacofighter.mydesign.data.trip;
+
 import java.util.ArrayList;
 
 public class start_act2 extends AppCompatActivity //繼承頁面
 {
-    EditText ed4 = findViewById(R.id.editText4); // 新增預算金
-    EditText ed5 = findViewById(R.id.editText6); // 新增成員
-    TextView namebar = findViewById(R.id.textView8); //抓新增成員
+    EditText ed4; // 新增預算金
+  //  EditText ed5 = findViewById(R.id.editText6); // 新增成員
+  //  TextView namebar = findViewById(R.id.textView8); //抓新增成員
     ArrayList<String> member ;
 
     @Override
@@ -21,6 +23,15 @@ public class start_act2 extends AppCompatActivity //繼承頁面
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_act2);
 
+    }
+
+    public void clickok (View v)
+    {
+       ed4 = findViewById(R.id.editText4);
+       int budget = Integer.valueOf(ed4.getText().toString());
+       MainActivity.addatrip.add(new trip(budget));   //我不知道怎麼把這邊打的資料放到上一頁新增的trip中
+        //試了很多方法 幫括新增建構式也無法
+       finish();
     }
 //
 //    public void  addman(TextView textView,ArrayList member)
@@ -34,15 +45,6 @@ public class start_act2 extends AppCompatActivity //繼承頁面
 //
 //    }
 
-        @SuppressLint("ResourceType")
 
-        public void CLadd(View v) {
 
-            namebar.setText((CharSequence) ed5);
-            namebar.setText("");
-
-            Bundle act = new Bundle();
-            act.putString("member", String.valueOf(ed5)); //儲存自訂的成員
-
-        }
 }

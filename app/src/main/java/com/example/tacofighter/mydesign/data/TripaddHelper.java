@@ -18,7 +18,7 @@ public class TripaddHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE `trip` ( `_id` INTEGER NOT NULL, `tital` TEXT, `startdate` INTEGER, `enddate` INTEGER, `budget` INTEGER, PRIMARY KEY(`_id`) )");
+        db.execSQL("CREATE TABLE \"trip\" ( `_id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `Title` TEXT, `startdate` TEXT, `enddate` TEXT, `budget` INTEGER )");
     }
 
     @Override
