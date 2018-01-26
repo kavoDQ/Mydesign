@@ -24,7 +24,8 @@ public class StartactActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startact);
-
+        str = findViewById(R.id.startday);
+        end = findViewById(R.id.endday);
     }
 
     public void startime (View v)
@@ -87,8 +88,6 @@ public class StartactActivity extends AppCompatActivity {
         ed2 = findViewById(R.id.editText);
         str = findViewById(R.id.startday);
         end = findViewById(R.id.endday);
-        str = findViewById(R.id.startday);
-        end = findViewById(R.id.endday);
         bud = findViewById(R.id.editText9);
 
         String title = ed.getText().toString();
@@ -103,8 +102,8 @@ public class StartactActivity extends AppCompatActivity {
         MainActivity.addatrip.add(new trip(id,title,startdate,enddate,budget));
         finish();
 
-//        Intent it = new Intent(StartactActivity.this,MainActivity.class); //跳頁
-//        startActivity(it);
+       Intent it = new Intent(StartactActivity.this,MainActivity.class); //跳頁
+       startActivity(it);
 //        EditText ed2;
 //        ed2 = findViewById(R.id.editText2);
 //        String name = ed2.getText().toString();
