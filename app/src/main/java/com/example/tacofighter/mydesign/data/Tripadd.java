@@ -1,62 +1,87 @@
+/*
 package com.example.tacofighter.mydesign.data;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.ArrayAdapter;
+
+import com.example.tacofighter.mydesign.tripdetaildata.TripaddHelper;
 
 import java.util.ArrayList;
 
+
 /**
  * Created by Student on 2018/1/23.
- */
 
-public class Tripadd {
+
+public class Tripadd  {
     Context context;
     SQLiteDatabase db;
-    public Tripadd (Context context)   //新增資烙用
+    String title; //標題
+    String startdate; //開始日
+    String enddate; //結束日
+    String budget; //預算
+    long check;
+
+    public Tripadd (Context context,String title,String startdate,String enddate,String budget)   //新增資烙庫表格用
     {
         this.context = context;
-        TripaddHelper helper = new TripaddHelper(context);
-        db = helper.getWritableDatabase();
+        this.title = title;
+        this.startdate = startdate;
+        this.enddate = enddate;
+        this.budget = budget;
+        //要存的項目
     }
 
-    public boolean add(trip t)  //增加資料細項
+    public long addToDB()  //增加資料細項
     {
+        TripaddHelper myhelper = new TripaddHelper(context); //上面的
+        SQLiteDatabase sqLiteDatabase = myhelper.getWritableDatabase();//打開
         ContentValues cv = new ContentValues();
-        cv.put("_id",t.id);
-        cv.put("title",t.title);
-        cv.put("startdate",t.startdate);
-        cv.put("enddate",t.enddate);
-        cv.put("budget",t.budget);
-        db.insert("trip",null,cv);
-        return true;
+
+        cv.put("_tripTitle",title); //插入名稱
+        cv.put("_tripStartdate",startdate); //插入開始日
+        cv.put("_tripEnddate",enddate);//插入結束日
+        cv.put("_tripBudget",budget);//插入預算
+        check = sqLiteDatabase.insert("trip",null,cv); //選擇插入的表
+        myhelper.close(); //關閉
+        return check;
     }
 
-    public ArrayList<trip> getList(){
-        ArrayList<trip> mytrip = new ArrayList<>();
+    //抓取清單
+    @Override
+    public ArrayList<trip> getList()
+    {
+        mytrip = new ArrayList<>();
         Cursor c = db.query("trip", new String[]{"_id","title","startdate","enddate","budget"},null,null,null,null,null);
         if(c.moveToFirst())
         {
             //用於獲取指定欄位名稱的int 型別的值
-            trip t1 = new trip(c.getInt(1),c.getString(2),c.getString(3),c.getString(4),c.getInt(5));
+            trip t1 = new trip(Integer.valueOf(c.getInt(0)),c.getString(1),c.getString(2),c.getString(3),c.getInt(4));
             mytrip.add(t1);
             while (c.moveToFirst())
             {
-                trip t = new trip(c.getInt(1),c.getString(2),c.getString(3),c.getString(4),c.getInt(5));
-                mytrip.add(t);
+                t1 = new trip(Integer.valueOf(c.getInt(0)),c.getString(1),c.getString(2),c.getString(3),c.getInt(4));
+                mytrip.add(t1);
             }
         }
         return mytrip;
     }
 
-    public trip gettrip(int id)//透過ID來找 不知道能不能用其他
+    @Override
+    public trip gettrip(int id)//透過ID來找
+        {
+            return  gettripByid(id);
+        }
+
+    private trip gettripByid(int id)
+
     {
         Cursor c =db.query("trip", new String[]{"_id","title","startdate","enddate","budget"},"_id=?",new String[]{String.valueOf(id)},null,null,null);
         if(c.moveToFirst())
         {
-            trip t1 = new trip(c.getInt(1),c.getString(2),c.getString(3),c.getString(4),c.getInt(5));
+            trip t1 = new trip(Integer.valueOf(c.getInt(0)),c.getString(1),c.getString(2),c.getString(3),c.getInt(4));
             return  t1;
         }
         return  null;
@@ -74,10 +99,12 @@ public class Tripadd {
         return  true;
     }
 
-
-    public boolean delete(int id)  //照ID刪除資料
-    {
+    @Override
+    public boolean delete(int id) {
         db.delete("trip","_id=?",new String[]{String.valueOf(id)});
         return true;
     }
+
+
 }
+*/

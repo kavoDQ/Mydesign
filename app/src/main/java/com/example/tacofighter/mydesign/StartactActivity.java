@@ -26,7 +26,9 @@ public class StartactActivity extends AppCompatActivity {
         setContentView(R.layout.activity_startact);
         str = findViewById(R.id.startday);
         end = findViewById(R.id.endday);
+
     }
+
 
     public void startime (View v)
     {
@@ -94,16 +96,14 @@ public class StartactActivity extends AppCompatActivity {
         int id = Integer.valueOf(ed2.getText().toString());
         String startdate = str.getText().toString();//抓選好後的開始時間
         String enddate = end.getText().toString(); //抓選好後的結束時間
+        int budget = Integer.valueOf(bud.getText().toString()); //抓填入的預算金額
 
 
-        int budget = Integer.valueOf(bud.getText().toString());
-
-
-        MainActivity.addatrip.add(new trip(id,title,startdate,enddate,budget));
+        MainActivity.dao.add(new trip(id,title,startdate,enddate,budget));
         finish();
 
-       Intent it = new Intent(StartactActivity.this,MainActivity.class); //跳頁
-       startActivity(it);
+//       Intent it = new Intent(StartactActivity.this,MainActivity.class); //跳頁
+//       startActivity(it);
 //        EditText ed2;
 //        ed2 = findViewById(R.id.editText2);
 //        String name = ed2.getText().toString();

@@ -29,7 +29,7 @@ public class start_act2 extends AppCompatActivity //繼承頁面
     {
        ed4 = findViewById(R.id.editText4);
        int budget = Integer.valueOf(ed4.getText().toString());
-       MainActivity.addatrip.add(new trip(budget));   //我不知道怎麼把這邊打的資料放到上一頁新增的trip中
+  //     MainActivity.dao.add(new trip(budget));   //我不知道怎麼把這邊打的資料放到上一頁新增的trip中
         //試了很多方法 幫括新增建構式也無法
        finish();
     }

@@ -11,7 +11,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.tacofighter.mydesign.data.Tripadd;
+import com.example.tacofighter.mydesign.data.TripDAO;
 import com.example.tacofighter.mydesign.data.trip;
 
 import java.lang.reflect.Array;
@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
-    public static Tripadd addatrip;
-    TextView tv1,tv2,tv3;
+    public static TripDAO dao;
+    TextView tv1;
     ListView lv;
     ArrayList<String> tripname;
     ArrayAdapter<String> adapter;
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.testmain2);
+
         tv1 = findViewById(R.id.textView2);
 
 //        Spinner spinner = findViewById(R.id.pick);
@@ -44,24 +45,25 @@ public class MainActivity extends AppCompatActivity {
 
        tripname = new ArrayList<>();
        //載入資料
-       adapter = new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,tripname);
+       adapter = new ArrayAdapter<String>(
+               MainActivity.this,android.R.layout.simple_list_item_1,tripname);
        lv = findViewById(R.id.listview);
        lv.setAdapter(adapter);
-       lv.setOnItemClickListener(new AdapterView.OnItemClickListener() { //點擊的話跳的位子
-           @Override
-           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               Intent it = new Intent(MainActivity.this,StartactActivity.class);
-               it.putExtra("id",addatrip.getList().get(position).id);
-               startActivity(it);
-           }
-       });
+//       lv.setOnItemClickListener(new AdapterView.OnItemClickListener() { //點擊的話跳的位子
+//           @Override
+//           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//               Intent it = new Intent(MainActivity.this,StartactActivity.class);
+//               it.putExtra("id",addatrip.getList().get(position).id);
+//               startActivity(it);
+//           }
+       }
 
-    }
+
 
     @Override
     protected void onResume() {
         super.onResume();
-      //  refreshData();
+        //refreshData();
     }
 //    public void refreshData()
 //    {

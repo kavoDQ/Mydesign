@@ -22,10 +22,5 @@ public class trip {  //這邊放有活動中的建構式
 
 
     }
-    public trip(int budget)  //
-    {
-        this.budget = budget;
-    }
-
 
 }
